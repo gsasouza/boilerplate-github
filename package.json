@@ -1,0 +1,62 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate to start a new nodejs project",
+  "babel": {
+    "presets": [
+      "latest"
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "plugins": [
+      "node",
+      "import"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true,
+      "mocha": true,
+      "es6": true
+    },
+    "extends": "airbnb-base/legacy"
+  },
+  "scripts": {
+    "start": "babel-node index.js",
+    "dev": "npm-run-all --parallel security-check start-server lint",
+    "start-server": "babel-node index.js",
+    "share": "now",
+    "security-check": "nsp check",
+    "lint": "esw app ./index.js --color",
+    "test": "nyc --reporter=lcov mocha --reporter=nyan --compilers s:babel-core/register --timeout=3000 --recursive ./app"
+  },
+  "author": "Gabriel Souza",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "chai": "^4.1.1",
+    "chai-http": "^3.0.0",
+    "easy-crud": "^1.0.3",
+    "express": "^4.15.4",
+    "jsonwebtoken": "^7.4.3",
+    "mongoose": "^4.11.8",
+    "mongoose-sequence": "^4.0.0",
+    "rosie": "^1.6.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-watch": "^3.1.2",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.2"
+  }
+}
